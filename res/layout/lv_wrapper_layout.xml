@@ -1,0 +1,36 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <View
+        android:id="@+id/lv_item_button"
+        android:layout_width="45dp"
+        android:layout_height="@dimen/lvItemHeight"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/method_toggle_holo_light"/>
+
+    <FrameLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@id/lv_item_button"/>
+
+    <View
+        android:id="@+id/item_separator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lv_item_button"/>
+
+    <include
+        android:id="@+id/expandanblePanel"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/item_separator"
+        layout="@layout/expandable_panel"
+        />
+
+</RelativeLayout>

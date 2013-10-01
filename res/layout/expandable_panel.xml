@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@android:color/darker_gray"
+    android:clickable="true">
+
+    <TextView
+        android:layout_height="65dp"
+        android:layout_width="wrap_content"
+        android:text="I have expanded as you requested"/>
+
+</LinearLayout>
