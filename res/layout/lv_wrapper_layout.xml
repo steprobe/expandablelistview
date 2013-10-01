@@ -9,7 +9,7 @@
         android:layout_height="@dimen/lvItemHeight"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:background="@drawable/method_toggle_holo_light"/>
+        android:background="@drawable/toggle_holo_light"/>
 
     <FrameLayout
         android:id="@+id/contentContainer"

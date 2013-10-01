@@ -15,7 +15,7 @@ public class ExpanderToggleManager {
     private VerticalExpandCollapseAnimation mCollapseAnimation;
     private VerticalExpandCollapseAnimation mExpandAnimation;
 
-    private final int mMethodPanelHeight;
+    private final int mPanelHeight;
     private int mOpenPosition = INVALID_POSITION;
 
     private final ViewGroup mContainer;
@@ -31,8 +31,8 @@ public class ExpanderToggleManager {
         }
     }
 
-    public ExpanderToggleManager(int methodPanelHeight, ViewGroup container) {
-        mMethodPanelHeight = methodPanelHeight;
+    public ExpanderToggleManager(int panelHeight, ViewGroup container) {
+        mPanelHeight = panelHeight;
         mContainer = container;
     }
 
@@ -70,11 +70,11 @@ public class ExpanderToggleManager {
 
                         @Override
                         public void onMatch(ToggleButtonTag tag) {
-                            View methodContainer = tag.viewToExpand;
+                            View container = tag.viewToExpand;
 
                             if (mCollapseAnimation == null) {
                                 mCollapseAnimation = new VerticalExpandCollapseAnimation(
-                                        methodContainer, mMethodPanelHeight, 0);
+                                        container, mPanelHeight, 0);
                                 mCollapseAnimation
                                         .setDuration(ANIMATION_DURATION);
                                 mCollapseAnimation
@@ -100,7 +100,7 @@ public class ExpanderToggleManager {
 
                                         });
                             }
-                            methodContainer.startAnimation(mCollapseAnimation);
+                            container.startAnimation(mCollapseAnimation);
                             mCollapsePosition = mOpenPosition;
                         }
                     });
@@ -119,11 +119,11 @@ public class ExpanderToggleManager {
 
                 @Override
                 public void onMatch(ToggleButtonTag tag) {
-                    ViewGroup methodContainer = (ViewGroup) tag.viewToExpand;
+                    ViewGroup container = (ViewGroup) tag.viewToExpand;
 
                     if (mExpandAnimation == null) {
                         mExpandAnimation = new VerticalExpandCollapseAnimation(
-                                methodContainer, 0, mMethodPanelHeight);
+                                container, 0, mPanelHeight);
 
                         mExpandAnimation.setDuration(ANIMATION_DURATION);
                         mExpandAnimation
@@ -148,7 +148,7 @@ public class ExpanderToggleManager {
                                     }
                                 });
                     }
-                    methodContainer.startAnimation(mExpandAnimation);
+                    container.startAnimation(mExpandAnimation);
                 }
             });
 
@@ -166,7 +166,7 @@ public class ExpanderToggleManager {
         }
     }
 
-    public void setCurrentHeight(int position, View methodContainer) {
+    public void setCurrentHeight(int position, View container) {
         int height = 0;
         VerticalExpandCollapseAnimation animation = null;
 
@@ -179,7 +179,7 @@ public class ExpanderToggleManager {
 
             }
             else {
-                height = mMethodPanelHeight;
+                height = mPanelHeight;
             }
 
         }
@@ -192,7 +192,7 @@ public class ExpanderToggleManager {
             }
         }
 
-        methodContainer.getLayoutParams().height = height;
-        methodContainer.setAnimation(animation);
+        container.getLayoutParams().height = height;
+        container.setAnimation(animation);
     }
 }
